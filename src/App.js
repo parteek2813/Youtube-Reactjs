@@ -1,4 +1,4 @@
-import "./App.css"
+import "./App.css";
 import Head from "./components/Head";
 import Body from "./components/Body";
 import { Provider } from "react-redux";
@@ -8,38 +8,38 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import MainContainer from "./components/MainContainer";
 import WatchPage from "./components/WatchPage";
 
-const appRouter = createBrowserRouter([{
-  path: "/",
-  element: <Body/>,
-  //All these children goes where my router outlet is: 
-  // which is in the body component!
-  children: [
-    {
-      path: "/",
-      element: <MainContainer></MainContainer>
-    },
-    {
-      path: "watch",
-      element: <WatchPage></WatchPage>
-    },
-  ]
-}])
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <Body />,
+    //All these children goes where my router outlet is:
+    // which is in the body component!
+    children: [
+      {
+        path: "/",
+        element: <MainContainer></MainContainer>,
+      },
+      {
+        path: "watch",
+        element: <WatchPage></WatchPage>,
+      },
+    ],
+  },
+
+  {
+    path: "/",
+    element: <Head></Head>,
+  },
+]);
 
 function App() {
-  
-
   return (
+    <Provider store={store}>
+      <div>
+        <Head />
+        <RouterProvider router={appRouter} />
 
-    <Provider store = {store}>
-
-   
-    <div >
-
-   
-      <Head />
-      <RouterProvider router={appRouter}/>
-
-     {/**
+        {/**
        * Head
        *Body
        * sidebar
@@ -48,8 +48,8 @@ function App() {
             Buttonlist
             videocontainer
             --video card
-       **/ }
-    </div>
+       **/}
+      </div>
     </Provider>
   );
 }

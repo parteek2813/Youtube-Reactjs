@@ -21,3 +21,12 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+
+// I have built nested comments
+// I have built search api
+// I have built search which has debouncing 
+// I have built search with uses the caching behind the scene
+// I have used the redux store for further scaling the project
+// I have used the userContext 
+// I have used embeded live API's.
